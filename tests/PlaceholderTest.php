@@ -16,12 +16,12 @@ class PlaceholderTest extends PHPUnit_Framework_TestCase {
     // uncomment below to launch Firefox instead
     //$driver = RemoteWebDriver::create($host, DesiredCapabilities::firefox());
 
-    // When we load the home page
+    // When: we load the home page
     $driver->get('http://ec2-54-174-113-69.compute-1.amazonaws.com'); // go to the placeholder page
     $actual_text = $driver->findElement(WebDriverBy::cssSelector('h1'))->getText();
     $expected_text = 'Built it!';
 
-    // Test for the headline 'Built it!'
+    // Then: test for the headline 'Built it!'
     $this->assertEquals(
       $expected_text,
       $actual_text,
