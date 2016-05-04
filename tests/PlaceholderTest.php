@@ -18,10 +18,10 @@ class PlaceholderTest extends PHPUnit_Framework_TestCase {
 
     // When: we load the home page
     $driver->get('http://ec2-54-174-113-69.compute-1.amazonaws.com'); // go to the placeholder page
-    $actual_text = $driver->findElement(WebDriverBy::cssSelector('h1'))->getText();
-    $expected_text = 'Built it!';
 
     // Then: test for the headline 'Built it!'
+    $actual_text = $driver->findElement(WebDriverBy::cssSelector('h1'))->getText();
+    $expected_text = 'Built it!';
     $this->assertEquals(
       $expected_text,
       $actual_text,

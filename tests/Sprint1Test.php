@@ -14,9 +14,14 @@ class Sprint1Test extends PHPUnit_Framework_TestCase {
 
     // When: we go to the home page
     $driver->get('http://ec2-54-174-113-69.compute-1.amazonaws.com'); // go to the placeholder page
-    $actual_matches = $driver->findElements(WebDriverBy::cssSelector('ul.navigation'));
 
     // Then: test for a navigation menu of various options
+    $actual_matches = $driver->findElements(WebDriverBy::cssSelector('ul.navigation'));
     $this->assertNotEquals(0, count($actual_matches), 'The home page is expected to have a nav menu, yet it does not');
+    // Then: test that we have removed the placeholder text 'Bamboo'
+    $is_found_bamboo = strpos(strtolower($driver->getPageSource()), 'bamboo');
+    $this->assertFalse($is_found_bamboo, 'We were supposed to have removed the placeholder text for "Bamboo" yet we have not');
+    $is_found_github = strpos(strtolower($driver->getPageSource()), 'github');
+    $this->assertFalse($is_found_github, 'We were supposed to have removed the placeholder text for "GitHub" yet we have not');
   }
 }
