@@ -9,7 +9,7 @@ use \Facebook\WebDriver\WebDriverBy;
 class PlaceholderTest extends PHPUnit_Framework_TestCase {
   public function testWeBuiltIt() {
     // Given
-    $host = 'http://ec2-54-174-113-69.compute-1.amazonaws.com:4444/wd/hub';
+    $host = 'http://ec2-54-174-113-69.compute-1.amazonaws.com:8000/wd/hub';
     /*    $browser = DesiredCapabilities::phantomjs();
         $browser->setCapability('phantomjs.binary.path', 'c:\Program Files\phantomjs-2.1.1-windows\bin\phantomjs.exe');
         $driver = RemoteWebDriver::create($host, $browser); // launch Firefox*/
