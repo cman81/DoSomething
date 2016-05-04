@@ -28,9 +28,9 @@ class Sprint1Test extends PHPUnit_Framework_TestCase {
     // Then: test that the navigational menu has clickable links
     $nav_items = $driver->findElements(WebDriverBy::cssSelector('ul.navigation li a'));
     $this->assertNotEquals(0, count($nav_items), 'The navigation is expected to have clickable items, it does not');
-    foreach ($nav_items as $idx => $nav_item) {
+    for ($i = 0; $i < count($nav_items); $i++) {
       // When: we click on a navigational item
-      $nav_item->click();
+      $driver->findElements(WebDriverBy::cssSelector('ul.navigation li a'))[$i]->click();
       // Then: test that a page actually exists
       $this->assertNotContains('404', $driver->getTitle(), "A page was supposed to exist at navigational link #" . $idx + 1 . " but it did not.");
       // Then: return to the home page (by URL)
