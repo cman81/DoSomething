@@ -1,0 +1,16 @@
+{
+  "name": "cgi_federal/dosomething",
+  "description": "sample platform for app with automated regression tests",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Christian Manalansan",
+      "email": "christian.manalansan@cgifederal.com"
+    }
+  ],
+  "require": {
+    "facebook/webdriver": "1.1.1",
+    "phpunit/phpunit": "5.2.*"
+  }
+}
