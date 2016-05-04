@@ -10,11 +10,13 @@ class PlaceholderTest extends PHPUnit_Framework_TestCase {
   public function testWeBuiltIt() {
     // Given
     $host = 'http://localhost:8000/wd/hub';
-    $browser = DesiredCapabilities::phantomjs();
-    $browser->setCapability('phantomjs.binary.path', '/usr/bin/phantomjs');
-    $driver = RemoteWebDriver::create($host, $browser);
-    // uncomment below to launch Firefox instead
-    //$driver = RemoteWebDriver::create($host, DesiredCapabilities::firefox());
+    try {
+      $browser = DesiredCapabilities::phantomjs();
+      $browser->setCapability('phantomjs.binary.path', '/usr/bin/phantomjs');
+      $driver = RemoteWebDriver::create($host, $browser);
+    } catch (Exception $e) {
+      $driver = RemoteWebDriver::create($host, DesiredCapabilities::firefox());
+    }
 
     // When: we load the home page
     $driver->get('http://ec2-54-174-113-69.compute-1.amazonaws.com'); // go to the placeholder page
