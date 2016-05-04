@@ -14,7 +14,7 @@ class Sprint1Test extends PHPUnit_Framework_TestCase {
 
     // When: we go to the home page
     $driver->get('http://ec2-54-174-113-69.compute-1.amazonaws.com'); // go to the placeholder page
-    $actual_matches = $driver->findElements(WebDriverBy::cssSelector('ul.navigation');
+    $actual_matches = $driver->findElements(WebDriverBy::cssSelector('ul.navigation'));
 
     // Then: test for a navigation menu of various options
     $this->assertNotEquals(0, count($actual_matches), 'The home page is expected to have a nav menu, yet it does not');
