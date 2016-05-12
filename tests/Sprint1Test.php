@@ -36,7 +36,7 @@ class Sprint1Test extends PHPUnit_Framework_TestCase {
       // When: we click on a navigational item
       $driver->findElements(WebDriverBy::cssSelector('ul.navigation li a'))[$i]->click();
       // Then: test that a page actually exists
-      $this->assertNotContains('404', $driver->getTitle(), "A page was supposed to exist at navigational link #" . $i + 1 . " but it did not.");
+      $this->assertNotContains('404', $driver->getTitle(), "A page was supposed to exist at navigational link #" . ($i + 1) . " but it did not.");
       // Then: return to the home page (by URL)
       $driver->get('http://ec2-54-174-113-69.compute-1.amazonaws.com');
     }
