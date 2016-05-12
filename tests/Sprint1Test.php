@@ -29,6 +29,10 @@ class Sprint1Test extends PHPUnit_Framework_TestCase {
     $is_found_github = strpos(strtolower($driver->getPageSource()), 'github');
     $this->assertFalse($is_found_github, 'We were supposed to have removed the placeholder text for "GitHub" yet we have not');
 
+    // Then: test that we have a nav item for 'Research'
+    $is_found_research = strpos(strtolower($driver->getPageSource()), 'research');
+    $this->assertTrue($is_found_research, 'We were supposed to have a nav item for "Research" yet we do not');
+
     // Then: test that the navigational menu has clickable links
     $nav_items = $driver->findElements(WebDriverBy::cssSelector('ul.navigation li a'));
     $this->assertNotEquals(0, count($nav_items), 'The navigation is expected to have clickable items, it does not');
